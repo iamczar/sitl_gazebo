@@ -2,10 +2,12 @@
 <sdf version='1.6'>
   <model name='pitcheron'>
     <pose>0 0 150 0 1.5708 0</pose>
+
+    <!-- Links -->
     <link name='base_link'>
       <pose frame=''>-1.5 0 0 0 -0 0</pose>
       <inertial>
-        <mass>0.5</mass>
+        <mass>0.1</mass>
         <inertia>
           <ixx>0.197563</ixx>
           <ixy>0</ixy>
@@ -284,6 +286,96 @@
         </surface>
       </collision>
     </link>
+    <link name='elevator_link'>
+      <inertial>
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+      </inertial>
+      <pose frame=''>-5.21804 0 0.36 0 -0 0</pose>
+      <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1 1.876 0.154138</size>
+          </box>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+      <collision name='collision'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1 1.876 0.154138</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+            </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+            <threshold>1e+06</threshold>
+          </bounce>
+          <contact>
+            <collide_without_contact>0</collide_without_contact>
+            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+            <collide_bitmask>1</collide_bitmask>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0</min_depth>
+            </ode>
+            <bullet>
+              <split_impulse>1</split_impulse>
+              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+            </bullet>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <!-- Joints-->
     <joint name='left_wing_joint' type='fixed'>
       <parent>base_link</parent>
       <child>left_wing_link</child>
@@ -352,11 +444,33 @@
         </ode>
       </physics>
     </joint>
+    <joint name='elevator_joint' type='fixed'>
+      <parent>base_link</parent>
+      <child>elevator_link</child>
+      <pose> -0.5 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <!-- -30/+30 deg. -->
+          <lower>-0.53</lower>
+          <upper>0.53</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
     <static>0</static>
     <allow_auto_disable>1</allow_auto_disable>
 
+    <!--plugins-->
     <plugin name='left_wing_plugin' filename='libLiftDragPlugin.so'>
-      <a0>-0.15708</a0><!-- angle of attack in radians-->
+      <a0>0.0523599</a0><!-- angle of attack in radians-->
       <cla>4.752798721</cla><!-- slope of the lift curve to the left of the stall angle -->
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -375,8 +489,9 @@
       <robotNamespace/>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
+
     <plugin name='right_wing_plugin' filename='libLiftDragPlugin.so'>
-      <a0>-0.15708</a0>
+      <a0>-0.0523599</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -395,5 +510,33 @@
       <robotNamespace/>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
+    
+    <plugin name="elevator" filename="libLiftDragPlugin.so">
+      <a0>2.61799</a0>
+      <cla>4.752798721</cla>
+      <cda>0.6417112299</cda>
+      <cma>0.0</cma>
+      <alpha_stall>0.3391428111</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.5 0 0</cp>
+      <area>0.01</area>
+      <air_density>1.2041</air_density>
+      <forward>1 0 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>
+        elevator_joint
+      </control_joint_name>
+      <control_joint_rad_to_cl>-4.0</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+
+    
+
+
+
   </model>
 </sdf>
