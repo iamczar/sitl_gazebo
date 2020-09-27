@@ -1,26 +1,26 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
   <model name='pitcheron'>
-    <pose>0 0 150 0 0 0</pose>
+    <pose>0 0 150 0 1.5708 0</pose>
     <link name='base_link'>
-      <pose>0 0 0 0 -0 0</pose>
+      <pose frame=''>-1.5 0 0 0 -0 0</pose>
       <inertial>
-        <mass>1.5</mass>
-        
+        <mass>0.5</mass>
         <inertia>
           <ixx>0.197563</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.1458929</iyy>
+          <iyy>0.145893</iyy>
           <iyz>0</iyz>
           <izz>0.1477</izz>
         </inertia>
-        
+        <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
       <pose frame=''>-0.506178 -1e-06 -0.071955 0 -0 0</pose>
       <self_collide>0</self_collide>
       <enable_wind>0</enable_wind>
       <kinematic>0</kinematic>
+      <gravity>1</gravity>
       <visual name='visual'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
@@ -35,6 +35,12 @@
             <name>Gazebo/Grey</name>
           </script>
           <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
@@ -106,9 +112,9 @@
           <iyz>0.0</iyz>
           <izz>0.000001</izz>
         </inertia>
-        <pose>0 0.3 0 0.00 0 0.0</pose>
+        <pose frame=''>0 0.3 0 0 -0 0</pose>
       </inertial>
-      <pose frame=''>0.255392 2.1453 0.05776 0 -0 0</pose>
+      <pose frame=''>0.255392 2.1453 0.057755 0 -0 0</pose>
       <self_collide>0</self_collide>
       <enable_wind>0</enable_wind>
       <kinematic>0</kinematic>
@@ -198,9 +204,9 @@
           <iyz>0</iyz>
           <izz>1.20948</izz>
         </inertia>
-        <pose>0 -0.3 0 0.00 0 0.0</pose>
+        <pose frame=''>0 -0.3 0 0 -0 0</pose>
       </inertial>
-      <pose frame=''>0.250783 -2.1453 0.014194 0 -0 0</pose>
+      <pose frame=''>0.250783 -2.1453 0.014191 0 -0 0</pose>
       <self_collide>0</self_collide>
       <enable_wind>0</enable_wind>
       <kinematic>0</kinematic>
@@ -348,18 +354,18 @@
     </joint>
     <static>0</static>
     <allow_auto_disable>1</allow_auto_disable>
-    
+
     <plugin name='left_wing_plugin' filename='libLiftDragPlugin.so'>
-      <a0>0.05984281113</a0>
-      <cla>4.752798721</cla>
+      <a0>-0.15708</a0><!-- angle of attack in radians-->
+      <cla>4.752798721</cla><!-- slope of the lift curve to the left of the stall angle -->
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
       <alpha_stall>0.3391428111</alpha_stall>
-      <cla_stall>-3.85</cla_stall>
+      <cla_stall>-3.85</cla_stall><!--slope of the lift curve to the right of the stall angle-->
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.05 0.45 0.05</cp>
-      <area>0.6</area>
+      <area>2</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -370,7 +376,7 @@
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name='right_wing_plugin' filename='libLiftDragPlugin.so'>
-      <a0>0.05984281113</a0>
+      <a0>-0.15708</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -379,7 +385,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.05 -0.45 0.05</cp>
-      <area>0.6</area>
+      <area>2</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -389,6 +395,5 @@
       <robotNamespace/>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    
   </model>
 </sdf>
