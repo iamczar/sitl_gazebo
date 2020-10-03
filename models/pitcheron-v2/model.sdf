@@ -141,7 +141,7 @@
           <diffuse>0.7 0.7 0.7 1</diffuse>
           <specular>0.01 0.01 0.01 1</specular>
         </material>
-        <transparency>0</transparency>
+        <transparency>1</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
       <collision name='collision'>
@@ -239,7 +239,7 @@
           <diffuse>0.7 0.7 0.7 1</diffuse>
           <specular>0.01 0.01 0.01 1</specular>
         </material>
-        <transparency>0</transparency>
+        <transparency>1</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
       <collision name='collision'>
@@ -337,7 +337,7 @@
           <diffuse>0.7 0.7 0.7 1</diffuse>
           <specular>0.01 0.01 0.01 1</specular>
         </material>
-        <transparency>0</transparency>
+        <transparency>1</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
       <collision name='collision'>
@@ -435,7 +435,7 @@
           <diffuse>0.7 0.7 0.7 1</diffuse>
           <specular>0.01 0.01 0.01 1</specular>
         </material>
-        <transparency>0</transparency>
+        <transparency>1</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
       <collision name='collision'>
@@ -533,7 +533,7 @@
           <diffuse>0.7 0.7 0.7 1</diffuse>
           <specular>0.01 0.01 0.01 1</specular>
         </material>
-        <transparency>0</transparency>
+        <transparency>1</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
       <collision name='collision'>
@@ -621,7 +621,7 @@
           </script>
           <emissive>0 0 0 1</emissive>
         </material>
-        <transparency>0</transparency>
+        <transparency>1</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
       <collision name='collision'>
