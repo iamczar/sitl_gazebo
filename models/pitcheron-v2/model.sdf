@@ -1,19 +1,19 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
   <model name='pitcheron-v2'>
-    <pose>0 0 50 0 0 0</pose>
+    <pose>0 0 0 0 0 0</pose>
 
     <!--Links-->
     <link name='base_link'>
       <inertial>
-        <mass>22.3252</mass>
+        <mass>0.1</mass>
         <inertia>
-          <ixx>5.53123</ixx>
+          <ixx>0.197563</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1723.74</iyy>
+          <iyy>0.1458929</iyy>
           <iyz>0</iyz>
-          <izz>1718.93</izz>
+          <izz>0.1477</izz>
         </inertia>
         <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
@@ -105,14 +105,14 @@
     </link>
     <link name='left_wing_link_bottom'>
       <inertial>
-        <mass>1</mass>
+        <mass>0.00000001</mass>
         <inertia>
-          <ixx>5.35828</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.0704521</iyy>
-          <iyz>0</iyz>
-          <izz>5.42213</izz>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
         </inertia>
         <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
@@ -203,14 +203,14 @@
     </link>
     <link name='left_wing_link_top'>
       <inertial>
-        <mass>1</mass>
+        <mass>0.00000001</mass>
         <inertia>
-          <ixx>5.35828</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.0704521</iyy>
-          <iyz>0</iyz>
-          <izz>5.42213</izz>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
         </inertia>
         <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
@@ -301,14 +301,14 @@
     </link>
     <link name='right_wing_link_bottom'>
       <inertial>
-        <mass>1</mass>
+        <mass>0.00000001</mass>
         <inertia>
-          <ixx>5.35828</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.0704521</iyy>
-          <iyz>0</iyz>
-          <izz>5.42213</izz>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
         </inertia>
         <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
@@ -399,14 +399,14 @@
     </link>
     <link name='right_wing_link_top'>
       <inertial>
-        <mass>1</mass>
+        <mass>0.00000001</mass>
         <inertia>
-          <ixx>5.35828</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.0704521</iyy>
-          <iyz>0</iyz>
-          <izz>5.42213</izz>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
         </inertia>
         <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
@@ -497,14 +497,14 @@
     </link>
     <link name='elevator_link'>
       <inertial>
-        <mass>1.81903</mass>
+        <mass>0.00000001</mass>
         <inertia>
-          <ixx>5.33693</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.256205</iyy>
-          <iyz>0</iyz>
-          <izz>5.57566</izz>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
         </inertia>
         <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
@@ -595,14 +595,14 @@
     </link>
     <link name='rudder_link'>
       <inertial>
-        <mass>0.685053</mass>
+        <mass>0.00000001</mass>
         <inertia>
-          <ixx>0.280313</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.349004</iyy>
-          <iyz>0</iyz>
-          <izz>0.0773197</izz>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
         </inertia>
         <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
@@ -687,16 +687,20 @@
       <parent>base_link</parent>
       <child>left_wing_link_bottom</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <!-- -30/+30 deg. -->
+          <lower>-0.53</lower>
+          <upper>0.53</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
       <physics>
         <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
+          <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
       </physics>
     </joint>
@@ -704,16 +708,20 @@
       <parent>base_link</parent>
       <child>left_wing_link_top</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <!-- -30/+30 deg. -->
+          <lower>-0.53</lower>
+          <upper>0.53</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
       <physics>
         <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
+          <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
       </physics>
     </joint>
@@ -721,16 +729,20 @@
       <parent>base_link</parent>
       <child>right_wing_link_bottom</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <!-- -30/+30 deg. -->
+          <lower>-0.53</lower>
+          <upper>0.53</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
       <physics>
         <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
+          <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
       </physics>
     </joint>
@@ -738,16 +750,20 @@
       <parent>base_link</parent>
       <child>right_wing_link_top</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <!-- -30/+30 deg. -->
+          <lower>-0.53</lower>
+          <upper>0.53</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
       <physics>
         <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
+          <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
       </physics>
     </joint>
@@ -755,16 +771,20 @@
       <parent>base_link</parent>
       <child>elevator_link</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <!-- -30/+30 deg. -->
+          <lower>-0.53</lower>
+          <upper>0.53</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
       <physics>
         <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
+          <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
       </physics>
     </joint>
@@ -788,7 +808,7 @@
 
   <!--Plugins-->
     <plugin name="left_wing_bottom_plugin" filename="libLiftDragPlugin.so">
-      <a0>0.05984281113</a0>
+      <a0>0.261799</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -797,7 +817,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.05 0.45 0.05</cp>
-      <area>0.6</area>
+      <area>2</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -810,7 +830,7 @@
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="left_wing_top_plugin" filename="libLiftDragPlugin.so">
-      <a0>0.05984281113</a0>
+      <a0>0.261799</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -819,7 +839,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.05 0.45 0.05</cp>
-      <area>0.6</area>
+      <area>2</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -832,7 +852,7 @@
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="right_wing_bottom_plugin" filename="libLiftDragPlugin.so">
-      <a0>0.05984281113</a0>
+      <a0>0.261799</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -841,7 +861,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.05 0.45 0.05</cp>
-      <area>0.6</area>
+      <area>2</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -854,7 +874,7 @@
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="right_wing_top_plugin" filename="libLiftDragPlugin.so">
-      <a0>0.05984281113</a0>
+      <a0>0.261799</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -863,7 +883,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.05 0.45 0.05</cp>
-      <area>0.6</area>
+      <area>2</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -875,9 +895,8 @@
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-
     <plugin name="elevator_plugin" filename="libLiftDragPlugin.so">
-      <a0>-0.2</a0>
+      <a0>2.61799</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -886,7 +905,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.5 0 0</cp>
-      <area>0.01</area>
+      <area>2</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -908,7 +927,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.5 0 0.05</cp>
-      <area>0.02</area>
+      <area>2</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 1 0</upward>
@@ -920,7 +939,7 @@
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    
+
     <static>0</static>
     <allow_auto_disable>1</allow_auto_disable>
   </model>
