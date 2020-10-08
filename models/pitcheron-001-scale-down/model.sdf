@@ -1,9 +1,12 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
   <model name='pitcheron-001-scale-down'>
+
+    <pose>0 0 100 0 -1.5708 0</pose>
+
     <link name='base_link'>
       <inertial>
-        <mass>0.01</mass>
+        <mass>47</mass>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <inertia>
           <ixx>0.197563</ixx>
@@ -306,16 +309,20 @@
       <parent>base_link</parent>
       <child>left_wing_link_bottom</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <!-- -15/+15 deg. -->
+          <lower>-0.261799</lower>
+          <upper>0.261799</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
       <physics>
         <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
+          <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
       </physics>
     </joint>
@@ -323,16 +330,20 @@
       <parent>base_link</parent>
       <child>left_wing_link_top</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <!-- -15/+15 deg. -->
+          <lower>-0.261799</lower>
+          <upper>0.261799</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
       <physics>
         <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
+          <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
       </physics>
     </joint>
@@ -340,16 +351,20 @@
       <parent>base_link</parent>
       <child>right_wing_link_bottom</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <!-- -15/+15 deg. -->
+          <lower>-0.261799</lower>
+          <upper>0.261799</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
       <physics>
         <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
+          <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
       </physics>
     </joint>
@@ -357,16 +372,20 @@
       <parent>base_link</parent>
       <child>right_wing_link_top</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <!-- -15/+15 deg. -->
+          <lower>-0.261799</lower>
+          <upper>0.261799</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
       <physics>
         <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
+          <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
       </physics>
     </joint>
@@ -393,7 +412,7 @@
     <allow_auto_disable>1</allow_auto_disable>
 
     <plugin name='elevator_plugin' filename='libLiftDragPlugin.so'>
-      <a0>0.785398</a0>
+      <a0>-0.2</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -402,7 +421,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.5 0 0</cp>
-      <area>2</area>
+      <area>0.01</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -413,7 +432,7 @@
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name='left_wing_bottom_plugin' filename='libLiftDragPlugin.so'>
-      <a0>0.523599</a0>
+      <a0>0.261799</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -422,7 +441,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.05 0.45 0.05</cp>
-      <area>2</area>
+      <area>0.6</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -433,7 +452,7 @@
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name='left_wing_top_plugin' filename='libLiftDragPlugin.so'>
-      <a0>0.523599</a0>
+      <a0>0.261799</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -442,7 +461,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.05 0.45 0.05</cp>
-      <area>2</area>
+      <area>0.6</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -453,7 +472,7 @@
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name='right_wing_bottom_plugin' filename='libLiftDragPlugin.so'>
-      <a0>0.523599</a0>
+      <a0>0.261799</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -462,7 +481,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.05 0.45 0.05</cp>
-      <area>2</area>
+      <area>0.6</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -473,7 +492,7 @@
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name='right_wing_top_plugin' filename='libLiftDragPlugin.so'>
-      <a0>0.523599</a0>
+      <a0>0.261799</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -482,7 +501,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.05 0.45 0.05</cp>
-      <area>2</area>
+      <area>0.6</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
