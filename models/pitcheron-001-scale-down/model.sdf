@@ -106,7 +106,7 @@
         </inertia>
         <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
-      <pose frame=''>-1.486622 -0.017323 1.507310 0 -0 0</pose>
+      <pose frame=''>-1.486622 0 1.507310 0 -0 0</pose>
       <visual name='elevator_link_visual'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
@@ -265,7 +265,7 @@
         </inertia>
         <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
-      <pose frame=''>-1.446240 0.032830 1.682760 0 -0 0</pose>
+      <pose frame=''>-1.446240 0 1.682760 0 -0 0</pose>
       <visual name='rudder_link_visual'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
