@@ -2,7 +2,7 @@
 <sdf version='1.6'>
   <model name='pitcheron-001-scale-down'>
 
-    <pose>0 0 150 0 1.57 0</pose>
+    <pose>0 0 1000 0 1.57 0</pose>
 
     <link name='base_link'>
       <inertial>
@@ -124,7 +124,7 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <link name='left_wing_link_bottom'>
+    <link name='left_wing_bottom_link'>
       <inertial>
         <mass>1e-08</mass>
         <inertia>
@@ -138,7 +138,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
       <pose frame=''>0.270000 0.110000 1.420000 0 0 0</pose>
-      <visual name='left_wing_link_bottom_visual'>
+      <visual name='left_wing_bottom_link_visual'>
         <pose frame=''>-0.030000 -0.110000 0.090000 0 -0 3.14159</pose>
         <geometry>
           <mesh>
@@ -156,7 +156,7 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <link name='left_wing_link_top'>
+    <link name='left_wing_top_link'>
       <inertial>
         <mass>1e-08</mass>
         <inertia>
@@ -170,7 +170,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
       <pose frame=''>0.270000 0.110000 1.600000 0 0 0</pose>
-      <visual name='left_wing_link_top_visual'>
+      <visual name='left_wing_top_link_visual'>
         <pose frame=''>-0.030000 -0.110000 -0.090000 0 -0 3.14159</pose>
         <geometry>
           <mesh>
@@ -188,7 +188,7 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <link name='right_wing_link_bottom'>
+    <link name='right_wing_bottom_link'>
       <inertial>
         <mass>1e-08</mass>
         <inertia>
@@ -202,7 +202,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
       <pose frame=''>0.270000 -0.110000 1.420000 0 0 0</pose>
-      <visual name='right_wing_link_bottom_visual'>
+      <visual name='right_wing_bottom_link_visual'>
         <pose frame=''>-0.030000 0.110000 0.090000 0 -0 3.14159</pose>
         <geometry>
           <mesh>
@@ -220,7 +220,7 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <link name='right_wing_link_top'>
+    <link name='right_wing_top_link'>
       <inertial>
         <mass>1e-08</mass>
         <inertia>
@@ -234,7 +234,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
       <pose frame=''>0.270000 -0.110000 1.600000 0 0 0</pose>
-      <visual name='right_wing_link_top_visual'>
+      <visual name='right_wing_top_link_visual'>
         <pose frame=''>-0.030000 0.110000 -0.090000 0 -0 3.14159</pose>
         <geometry>
           <mesh>
@@ -285,7 +285,7 @@
       </visual>
     </link>
 
-    <joint name='elevator_link_joint' type='fixed'>
+    <joint name='elevator_joint' type='fixed'>
       <parent>base_link</parent>
       <child>elevator_link</child>
       <pose frame=''>0 0 0 0 -0.261799 0</pose>
@@ -302,9 +302,9 @@
         </ode>
       </physics>
     </joint>
-    <joint name='left_wing_bottom_link_joint' type='revolute'>
+    <joint name='left_wing_bottom_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>left_wing_link_bottom</child>
+      <child>left_wing_bottom_link</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
@@ -323,9 +323,9 @@
         </ode>
       </physics>
     </joint>
-    <joint name='left_wing_top_link_joint' type='revolute'>
+    <joint name='left_wing_top_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>left_wing_link_top</child>
+      <child>left_wing_top_link</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
@@ -344,9 +344,9 @@
         </ode>
       </physics>
     </joint>
-    <joint name='right_wing_bottom_link_joint' type='revolute'>
+    <joint name='right_wing_bottom_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>right_wing_link_bottom</child>
+      <child>right_wing_bottom_link</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
@@ -365,9 +365,9 @@
         </ode>
       </physics>
     </joint>
-    <joint name='right_wing_top_link_joint' type='revolute'>
+    <joint name='right_wing_top_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>right_wing_link_top</child>
+      <child>right_wing_top_link</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
@@ -386,7 +386,7 @@
         </ode>
       </physics>
     </joint>
-    <joint name='rudder_link_joint' type='fixed'>
+    <joint name='rudder_joint' type='fixed'>
       <parent>base_link</parent>
       <child>rudder_link</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
@@ -439,17 +439,17 @@
       <cma_stall>0</cma_stall>
       <cp>-0.05 0.45 0.05</cp>
       <area>2</area>
-      <air_density>1.2041</air_density>
+      <air_density>0.81935</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>left_wing_link_bottom</control_joint_name>
+      <control_joint_name>left_wing_bottom_link</control_joint_name>
       <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
       <robotNamespace/>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name='left_wing_top_plugin' filename='libLiftDragPlugin.so'>
-      <a0>-0.0523599</a0>
+      <a0>0.0523599</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -459,11 +459,11 @@
       <cma_stall>0</cma_stall>
       <cp>-0.05 0.45 0.05</cp>
       <area>2</area>
-      <air_density>1.2041</air_density>
+      <air_density>0.81935</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>left_wing_link_top</control_joint_name>
+      <control_joint_name>left_wing_top_link</control_joint_name>
       <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
       <robotNamespace/>
       <windSubTopic>world_wind</windSubTopic>
@@ -479,17 +479,17 @@
       <cma_stall>0</cma_stall>
       <cp>-0.05 0.45 0.05</cp>
       <area>2</area>
-      <air_density>1.2041</air_density>
+      <air_density>0.81935</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>right_wing_link_bottom</control_joint_name>
+      <control_joint_name>right_wing_bottom_link</control_joint_name>
       <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
       <robotNamespace/>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name='right_wing_top_plugin' filename='libLiftDragPlugin.so'>
-      <a0>-0.0523599</a0>
+      <a0>0.0523599</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -499,11 +499,11 @@
       <cma_stall>0</cma_stall>
       <cp>-0.05 0.45 0.05</cp>
       <area>2</area>
-      <air_density>1.2041</air_density>
+      <air_density>0.81935</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>right_wing_link_top</control_joint_name>
+      <control_joint_name>right_wing_top_link</control_joint_name>
       <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
       <robotNamespace/>
       <windSubTopic>world_wind</windSubTopic>
@@ -519,7 +519,7 @@
       <cma_stall>0</cma_stall>
       <cp>-0.5 0 0.05</cp>
       <area>0.2</area>
-      <air_density>1.2041</air_density>
+      <air_density>0.81935</air_density>
       <forward>1 0 0</forward>
       <upward>0 1 0</upward>
       <link_name>base_link</link_name>
