@@ -2,7 +2,7 @@
 <sdf version='1.6'>
   <model name='pitcheron-001-scale-down'>
 
-    <pose>0 0 1000 0 1.57 0</pose>
+    <pose>0 0 150 0 1.57 0</pose>
 
     <link name='base_link'>
       <inertial>
@@ -408,48 +408,29 @@
 
     <allow_auto_disable>1</allow_auto_disable>
 
-    <plugin name='elevator_plugin' filename='libLiftDragPlugin.so'>
-      <a0>-0.2</a0>
-      <cla>4.752798721</cla>
-      <cda>0.6417112299</cda>
-      <cma>0.0</cma>
-      <alpha_stall>0.3391428111</alpha_stall>
-      <cla_stall>-3.85</cla_stall>
-      <cda_stall>-0.9233984055</cda_stall>
-      <cma_stall>0</cma_stall>
-      <cp>-0.5 0 0</cp>
-      <area>0.01</area>
-      <air_density>1.2041</air_density>
-      <forward>1 0 0</forward>
-      <upward>0 0 1</upward>
-      <link_name>base_link</link_name>
-      <control_joint_name>elevator_link</control_joint_name>
-      <control_joint_rad_to_cl>-4.0</control_joint_rad_to_cl>
-      <robotNamespace/>
-      <windSubTopic>world_wind</windSubTopic>
-    </plugin>
+
     <plugin name='left_wing_bottom_plugin' filename='libLiftDragPlugin.so'>
-      <a0>0.0523599</a0>
-      <cla>4.752798721</cla>
-      <cda>0.6417112299</cda>
-      <cma>0.0</cma>
-      <alpha_stall>0.3391428111</alpha_stall>
-      <cla_stall>-3.85</cla_stall>
-      <cda_stall>-0.9233984055</cda_stall>
-      <cma_stall>0</cma_stall>
-      <cp>-0.05 0.45 0.05</cp>
-      <area>2</area>
-      <air_density>0.81935</air_density>
-      <forward>1 0 0</forward>
-      <upward>0 0 1</upward>
+      <a0>0.122173</a0> <!-- angle of attack in radians as a double precision point value -->
+      <cla>4.752798721</cla> <!-- as a coeficient unitless as a double precision point value -->
+      <cda>0.6417112299</cda> <!-- as a coeficient unitless as a double precision point value -->
+      <cma>0.0</cma> <!-- Coefficient of Moment / alpha slope. unitless as a double precision point value NOTE: this is zero on the lane model--> 
+      <alpha_stall>0.3391428111</alpha_stall> <!-- as a coeficient unitless as a double precision point value -->
+      <cla_stall>-3.85</cla_stall> <!-- as a coeficient unitless as a double precision point value -->
+      <cda_stall>-0.9233984055</cda_stall> <!-- as a coeficient unitless as a double precision point value -->
+      <cma_stall>0</cma_stall> <!-- Coefficient of Moment / alpha slope. unitless as a double precision point value NOTE: this is zero on the lane model--> 
+      <cp>-0.05 0.45 0.05</cp> <!-- link coordinates of center of pressure int Vector 3 (x,y,x) relative to center of link -->
+      <area>2</area> <!-- area of the link in m^2 as a double precision point value -->
+      <air_density>0.81935</air_density>  <!-- air density in kg/m3 as a double precision point value --> 
+      <forward>1 0 0</forward> <!-- Normally, this is taken as a direction parallel to the chord of the airfoil in zero angle of attack forward flight. (x,y,z)-->
+      <upward>0 0 1</upward> <!--Inflow velocity orthogonal to forward and upward vectors is considered flow in the wing sweep direction. (x,y.z)-->
       <link_name>base_link</link_name>
       <control_joint_name>left_wing_bottom_link</control_joint_name>
       <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
-      <robotNamespace/>
+      <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name='left_wing_top_plugin' filename='libLiftDragPlugin.so'>
-      <a0>0.0523599</a0>
+      <a0>0.122173</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -465,11 +446,11 @@
       <link_name>base_link</link_name>
       <control_joint_name>left_wing_top_link</control_joint_name>
       <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
-      <robotNamespace/>
+      <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name='right_wing_bottom_plugin' filename='libLiftDragPlugin.so'>
-      <a0>0.0523599</a0>
+      <a0>0.122173</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -485,11 +466,11 @@
       <link_name>base_link</link_name>
       <control_joint_name>right_wing_bottom_link</control_joint_name>
       <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
-      <robotNamespace/>
+      <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name='right_wing_top_plugin' filename='libLiftDragPlugin.so'>
-      <a0>0.0523599</a0>
+      <a0>0.122173</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -505,7 +486,7 @@
       <link_name>base_link</link_name>
       <control_joint_name>right_wing_top_link</control_joint_name>
       <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
-      <robotNamespace/>
+      <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name='rudder_pliugin' filename='libLiftDragPlugin.so'>
@@ -526,6 +507,26 @@
       <control_joint_name>rudder_link</control_joint_name>
       <control_joint_rad_to_cl>4.0</control_joint_rad_to_cl>
       <robotNamespace/>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+        <plugin name='elevator_plugin' filename='libLiftDragPlugin.so'>
+      <a0>-0.2</a0> 
+      <cla>4.752798721</cla> 
+      <cda>0.6417112299</cda> 
+      <cma>0.0</cma> 
+      <alpha_stall>0.3391428111</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.5 0 0</cp> 
+      <area>0.01</area> 
+      <air_density>1.2041</air_density> 
+      <forward>1 0 0</forward> 
+      <upward>0 0 1</upward> 
+      <link_name>base_link</link_name>
+      <control_joint_name>elevator_link</control_joint_name>
+      <control_joint_rad_to_cl>-4.0</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
 
