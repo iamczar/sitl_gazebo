@@ -2,7 +2,7 @@
 <sdf version='1.6'>
   <model name='pitcheron-001-scale-down'>
 
-    <pose>0 0 200 0 1.57 0</pose>
+    <pose>0 0 0 0 0 0</pose>
 
     <link name='base_link'>
       <inertial>
@@ -93,6 +93,9 @@
       </collision>
       <velocity_decay/>
     </link>
+
+    <!-- control surfaces links -->
+
     <link name='elevator_link'>
       <inertial>
         <mass>1e-08</mass>
@@ -285,6 +288,8 @@
       </visual>
     </link>
 
+    <!-- control surfaces joints -->
+
     <joint name='elevator_joint' type='fixed'>
       <parent>base_link</parent>
       <child>elevator_link</child>
@@ -408,12 +413,13 @@
 
     <allow_auto_disable>1</allow_auto_disable>
 
+    <!-- control surfaces plugins -->
 
     <plugin name='left_wing_bottom_plugin' filename='libLiftDragPlugin.so'>
       <!-- 6 degrees angle of attack -->
       <a0>0.10472</a0> <!-- angle of attack in radians as a double precision point value -->
-      <cla>5.577593357</cla> <!-- as a coeficient unitless as a double precision point value -->
-      <cda>0.4216969372</cda> <!-- as a coeficient unitless as a double precision point value -->
+      <cla>4.705845611</cla> <!-- as a coeficient unitless as a double precision point value -->
+      <cda>0.3817188071</cda> <!-- as a coeficient unitless as a double precision point value -->
       <cma>0.0</cma> <!-- Coefficient of Moment / alpha slope. unitless as a double precision point value NOTE: this is zero on the lane model--> 
       <!-- set to 10 degrees -->
       <alpha_stall>0.1745329252</alpha_stall> <!-- is the angle at which it starts stalling -->
@@ -433,8 +439,8 @@
     </plugin>
     <plugin name='left_wing_top_plugin' filename='libLiftDragPlugin.so'>
       <a0>0.10472</a0>
-      <cla>5.577593357</cla>
-      <cda>0.4216969372</cda>
+      <cla>4.705845611</cla>
+      <cda>0.3817188071</cda>
       <cma>0.0</cma>
       <alpha_stall>0.1745329252</alpha_stall>
       <cla_stall>-6.606203378</cla_stall>
@@ -453,8 +459,8 @@
     </plugin>
     <plugin name='right_wing_bottom_plugin' filename='libLiftDragPlugin.so'>
       <a0>0.10472</a0>
-      <cla>5.577593357</cla>
-      <cda>0.4216969372</cda>
+      <cla>4.705845611</cla>
+      <cda>0.3817188071</cda>
       <cma>0.0</cma>
       <alpha_stall>0.1745329252</alpha_stall>
       <cla_stall>-6.606203378</cla_stall>
@@ -473,8 +479,8 @@
     </plugin>
     <plugin name='right_wing_top_plugin' filename='libLiftDragPlugin.so'>
       <a0>0.10472</a0>
-      <cla>5.577593357</cla>
-      <cda>0.4216969372</cda>
+      <cla>4.705845611</cla>
+      <cda>0.3817188071</cda>
       <cma>0.0</cma>
       <alpha_stall>0.1745329252</alpha_stall>
       <cla_stall>-6.606203378</cla_stall>
@@ -531,6 +537,8 @@
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
+
+    <!-- sensors and interface plugins-->
 
   </model>
 </sdf>
