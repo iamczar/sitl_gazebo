@@ -37,7 +37,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://rotors_description/meshes/iris.stl</uri>
+            <uri>model://iris/meshes/iris.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -200,7 +200,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://rotors_description/meshes/iris_prop_ccw.dae</uri>
+            <uri>model://iris/meshes/iris_prop_ccw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -460,7 +460,6 @@
       <sdk_udp_port>14540</sdk_udp_port>
       <hil_mode>1</hil_mode>
       <hil_state_level>0</hil_state_level>
-      <vehicle_is_tailsitter>0</vehicle_is_tailsitter>
       <send_vision_estimation>0</send_vision_estimation>
       <send_odometry>1</send_odometry>
       <enable_lockstep>0</enable_lockstep>
