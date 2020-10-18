@@ -1,59 +1,48 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
   <model name='pitcheron'>
-    <pose>0 0 150 0 1.5708 0</pose>
 
-    <!-- Links -->
+    <pose>0 0 200 0 1.57 0</pose>
+
     <link name='base_link'>
-      <pose frame=''>-1.5 0 0 0 -0 0</pose>
       <inertial>
-        <mass>1.5</mass>
+        <mass>47</mass>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <inertia>
-          <ixx>0.13762691</ixx>
+          <ixx>0.11644594</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>6.34900942</iyy>
+          <iyy>36.28891523</iyy>
           <iyz>0</iyz>
-          <izz>6.23663632</izz>
+          <izz>36.18768153</izz>
         </inertia>
-        <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
-      <pose frame=''>-0.506178 -1e-06 -0.071955 0 -0 0</pose>
-      <self_collide>0</self_collide>
-      <enable_wind>0</enable_wind>
-      <kinematic>0</kinematic>
+      <pose frame=''>0 0 1.490810 0 -0 0</pose>
       <gravity>1</gravity>
-      <visual name='visual'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+      <visual name='base_link_visual'>
+        <pose frame=''>0.240000 0 0.020000 0 0 3.14159</pose>
         <geometry>
-          <box>
-            <size>7.05635 0.317829 1</size>
-          </box>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://pitcheron/mesh/AnalyseModel-Fuselage-003.dae</uri>
+          </mesh>
         </geometry>
         <material>
-          <lighting>1</lighting>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
             <name>Gazebo/Grey</name>
           </script>
-          <emissive>0 0 0 1</emissive>
-          <shader type='vertex'>
-            <normal_map>__default__</normal_map>
-          </shader>
-          <ambient>0.3 0.3 0.3 1</ambient>
-          <diffuse>0.7 0.7 0.7 1</diffuse>
-          <specular>0.01 0.01 0.01 1</specular>
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
-      <collision name='collision'>
+      <collision name='base_link_collision'>
         <laser_retro>0</laser_retro>
         <max_contacts>10</max_contacts>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>7.05635 0.317829 1</size>
+            <size>3.03932 0.0440676 0.1667</size>
           </box>
         </geometry>
         <surface>
@@ -88,8 +77,8 @@
               <soft_erp>0.2</soft_erp>
               <kp>1e+13</kp>
               <kd>1</kd>
-              <max_vel>0.01</max_vel>
-              <min_depth>0</min_depth>
+              <max_vel>10</max_vel>
+              <min_depth>0.01</min_depth>
             </ode>
             <bullet>
               <split_impulse>1</split_impulse>
@@ -102,167 +91,250 @@
           </contact>
         </surface>
       </collision>
+      <velocity_decay/>
     </link>
-    <link name='left_wing_link'>
-      <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-        <pose frame=''>0 0.3 0 0 -0 0</pose>
-      </inertial>
-      <pose frame=''>0.255392 2.1453 0.057755 0 0 0</pose>
-      <visual name='visual'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <geometry>
-          <box>
-            <size>1.00004 3.97277 0.217653</size>
-          </box>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
-          </script>
-          <shader type='pixel'/>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-    </link>
-    <link name='right_wing_link'>
-      <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>1.14082</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.0754858</iyy>
-          <iyz>0</iyz>
-          <izz>1.20948</izz>
-        </inertia>
-        <pose frame=''>0 -0.3 0 0 -0 0</pose>
-      </inertial>
-      <pose frame=''>0.250783 -2.1453 0.014191 0 -0 0</pose>
-      <visual name='visual'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <geometry>
-          <box>
-            <size>1.00004 3.97277 0.217653</size>
-          </box>
-        </geometry>
-        <material>
-          <lighting>1</lighting>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
-          </script>
-          <emissive>0 0 0 1</emissive>
-        </material>
-        <transparency>0</transparency>
-        <cast_shadows>1</cast_shadows>
-      </visual>
-    </link>
+
+    <!-- control surfaces links -->
+
     <link name='elevator_link'>
       <inertial>
-        <mass>0.00000001</mass>
+        <mass>1e-08</mass>
         <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
+          <ixx>1e-06</ixx>
+          <ixy>0</ixy>
+          <iyy>1e-06</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>1e-06</izz>
         </inertia>
         <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
-      <pose frame=''>-5.21804 0 0.36 0 -0 0</pose>
-      <visual name='visual'>
+      <pose frame=''>-1.486622 0 1.507310 0 -0 0</pose>
+      <visual name='elevator_link_visual'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>1 1.876 0.154138</size>
+            <size>0.107408 0.562568 0.044178</size>
           </box>
         </geometry>
         <material>
-          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+        <transparency>1</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='left_wing_bottom_link'>
+      <inertial>
+        <mass>1e-08</mass>
+        <inertia>
+          <ixx>1e-06</ixx>
+          <ixy>0</ixy>
+          <iyy>1e-06</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>1e-06</izz>
+        </inertia>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+      </inertial>
+      <pose frame=''>0.270000 0.110000 1.420000 0 0 0</pose>
+      <visual name='left_wing_bottom_link_visual'>
+        <pose frame=''>-0.030000 -0.110000 0.090000 0 -0 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://pitcheron/mesh/AnalyseModel-Left-Bottom-Wing-003.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='left_wing_top_link'>
+      <inertial>
+        <mass>1e-08</mass>
+        <inertia>
+          <ixx>1e-06</ixx>
+          <ixy>0</ixy>
+          <iyy>1e-06</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>1e-06</izz>
+        </inertia>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+      </inertial>
+      <pose frame=''>0.270000 0.110000 1.600000 0 0 0</pose>
+      <visual name='left_wing_top_link_visual'>
+        <pose frame=''>-0.030000 -0.110000 -0.090000 0 -0 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://pitcheron/mesh/AnalyseModel-Left-Top-Wing-003.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='right_wing_bottom_link'>
+      <inertial>
+        <mass>1e-08</mass>
+        <inertia>
+          <ixx>1e-06</ixx>
+          <ixy>0</ixy>
+          <iyy>1e-06</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>1e-06</izz>
+        </inertia>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+      </inertial>
+      <pose frame=''>0.270000 -0.110000 1.420000 0 0 0</pose>
+      <visual name='right_wing_bottom_link_visual'>
+        <pose frame=''>-0.030000 0.110000 0.090000 0 -0 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://pitcheron/mesh/AnalyseModel-Right-Bottom-Wing-003.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='right_wing_top_link'>
+      <inertial>
+        <mass>1e-08</mass>
+        <inertia>
+          <ixx>1e-06</ixx>
+          <ixy>0</ixy>
+          <iyy>1e-06</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>1e-06</izz>
+        </inertia>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+      </inertial>
+      <pose frame=''>0.270000 -0.110000 1.600000 0 0 0</pose>
+      <visual name='right_wing_top_link_visual'>
+        <pose frame=''>-0.030000 0.110000 -0.090000 0 -0 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://pitcheron/mesh/AnalyseModel-Right-Top-Wing-003.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='rudder_link'>
+      <inertial>
+        <mass>1e-08</mass>
+        <inertia>
+          <ixx>1e-06</ixx>
+          <ixy>0</ixy>
+          <iyy>1e-06</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>1e-06</izz>
+        </inertia>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+      </inertial>
+      <pose frame=''>-1.446240 0 1.682760 0 -0 0</pose>
+      <visual name='rudder_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.130490 0.060154 0.221761</size>
+          </box>
+        </geometry>
+        <material>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
             <name>Gazebo/Grey</name>
           </script>
           <emissive>0 0 0 1</emissive>
         </material>
-        <transparency>0</transparency>
+        <transparency>1</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
 
-    <!-- Joints-->
-    <joint name='left_wing_joint' type='revolute'>
-      <parent>base_link</parent>
-      <child>left_wing_link</child>
-      <pose frame=''>0 0 0 0 -0 0</pose>
-      <axis>
-        <xyz>0 1 0</xyz>
-        <use_parent_model_frame>0</use_parent_model_frame>
-        <limit>
-          <!-- -30/+30 deg. -->
-          <lower>-0.53</lower>
-          <upper>0.53</upper>
-          <effort>-1</effort>
-          <velocity>-1</velocity>
-        </limit>
-        <dynamics>
-          <damping>1.000</damping>
-        </dynamics>
-      </axis>
-      <physics>
-        <ode>
-          <implicit_spring_damper>1</implicit_spring_damper>
-        </ode>
-      </physics>
-    </joint>
-    <joint name='right_wing_joint' type='revolute'>
-      <parent>base_link</parent>
-      <child>right_wing_link</child>
-      <pose frame=''>0 0 0 0 -0 0</pose>
-      <axis>
-        <xyz>0 1 0</xyz>
-        <use_parent_model_frame>0</use_parent_model_frame>
-        <limit>
-          <!-- -30/+30 deg. -->
-          <lower>-0.53</lower>
-          <upper>0.53</upper>
-          <effort>-1</effort>
-          <velocity>-1</velocity>
-        </limit>
-        <dynamics>
-          <damping>1.000</damping>
-        </dynamics>
-      </axis>
-      <physics>
-        <ode>
-          <implicit_spring_damper>1</implicit_spring_damper>
-        </ode>
-      </physics>
-    </joint>
+    <!-- sensor and interface links -->
+
+    <link name='pitcheron/imu_link'>
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.015</mass>
+        <inertia>
+          <ixx>1e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- control surfaces joints -->
+
     <joint name='elevator_joint' type='fixed'>
       <parent>base_link</parent>
       <child>elevator_link</child>
-      <pose> -0.5 0 0 0 0 0</pose>
+      <pose frame=''>0 0 0 0 -0.261799 0</pose>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+    </joint>
+    <joint name='left_wing_bottom_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>left_wing_bottom_link</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
-          <!-- -30/+30 deg. -->
-          <lower>-0.53</lower>
-          <upper>0.53</upper>
+          <!-- -15/+15 deg. -->
+          <lower>-0.261799</lower>
+          <upper>0.261799</upper>
         </limit>
         <dynamics>
           <damping>1.000</damping>
@@ -274,33 +346,197 @@
         </ode>
       </physics>
     </joint>
+    <joint name='left_wing_top_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>left_wing_top_link</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <!-- -15/+15 deg. -->
+          <lower>-0.261799</lower>
+          <upper>0.261799</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <joint name='right_wing_bottom_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>right_wing_bottom_link</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <!-- -15/+15 deg. -->
+          <lower>-0.261799</lower>
+          <upper>0.261799</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <joint name='right_wing_top_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>right_wing_top_link</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <!-- -15/+15 deg. -->
+          <lower>-0.261799</lower>
+          <upper>0.261799</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+    <joint name='rudder_joint' type='fixed'>
+      <parent>base_link</parent>
+      <child>rudder_link</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+    </joint>
+
+    <!-- sensor and interface joints -->
+    <joint name='pitcheron/imu_joint' type='revolute'>
+      <parent>base_link</parent>
+      <child>pitcheron/imu_link</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
     <static>0</static>
+
     <allow_auto_disable>1</allow_auto_disable>
 
-    <!--plugins-->
-    <plugin name='left_wing_plugin' filename='libLiftDragPlugin.so'>
-      <a0>0.0523599</a0><!-- angle of attack in radians-->
-      <cla>4.752798721</cla><!-- slope of the lift curve to the left of the stall angle -->
-      <cda>0.6417112299</cda>
-      <cma>0.0</cma>
-      <alpha_stall>0.3391428111</alpha_stall>
-      <cla_stall>-3.85</cla_stall><!--slope of the lift curve to the right of the stall angle-->
-      <cda_stall>-0.9233984055</cda_stall>
-      <cma_stall>0</cma_stall>
-      <cp>-0.05 0.45 0.05</cp>
-      <area>2</area>
-      <air_density>1.2041</air_density>
-      <forward>1 0 0</forward>
-      <upward>0 0 1</upward>
-      <link_name>base_link</link_name>
-      <control_joint_name>left_wing_link</control_joint_name>
-      <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
-      <robotNamespace/>
-      <windSubTopic>world_wind</windSubTopic>
-    </plugin>
+    <!-- control surfaces plugins -->
 
-    <plugin name='right_wing_plugin' filename='libLiftDragPlugin.so'>
-      <a0>0.0523599</a0>
+    <plugin name='left_wing_bottom_plugin' filename='libLiftDragPlugin.so'>
+      <!-- 6 degrees angle of attack -->
+      <a0>0.10472</a0> <!-- angle of attack in radians as a double precision point value -->
+      <cla>4.705845611</cla> <!-- as a coeficient unitless as a double precision point value -->
+      <cda>0.3817188071</cda> <!-- as a coeficient unitless as a double precision point value -->
+      <cma>0.0</cma> <!-- Coefficient of Moment / alpha slope. unitless as a double precision point value NOTE: this is zero on the lane model--> 
+      <!-- set to 10 degrees -->
+      <alpha_stall>0.1745329252</alpha_stall> <!-- is the angle at which it starts stalling -->
+      <cla_stall>-6.606203378</cla_stall> <!-- as a coeficient unitless as a double precision point value -->
+      <cda_stall>1.28113363</cda_stall> <!-- as a coeficient unitless as a double precision point value -->
+      <cma_stall>0</cma_stall> <!-- Coefficient of Moment / alpha slope. unitless as a double precision point value NOTE: this is zero on the lane model--> 
+      <cp>0 0.280 0</cp> <!-- link coordinates of center of pressure int Vector 3 (x,y,x) relative to center of link -->
+      <area>0.6</area> <!-- area of the link in m^2 as a double precision point value -->
+      <air_density>0.81935</air_density>  <!-- air density in kg/m3 as a double precision point value --> 
+      <forward>1 0 0</forward> <!-- Normally, this is taken as a direction parallel to the chord of the airfoil in zero angle of attack forward flight. (x,y,z)-->
+      <upward>0 0 1</upward> <!--Inflow velocity orthogonal to forward and upward vectors is considered flow in the wing sweep direction. (x,y.z)-->
+      <link_name>base_link</link_name>
+      <control_joint_name>left_wing_bottom_joint</control_joint_name>
+      <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name='left_wing_top_plugin' filename='libLiftDragPlugin.so'>
+      <a0>0.10472</a0>
+      <cla>4.705845611</cla>
+      <cda>0.3817188071</cda>
+      <cma>0.0</cma>
+      <alpha_stall>0.1745329252</alpha_stall>
+      <cla_stall>-6.606203378</cla_stall>
+      <cda_stall>1.28113363</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0 0.280 0</cp>
+      <area>0.6</area>
+      <air_density>0.81935</air_density>
+      <forward>1 0 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>left_wing_top_joint</control_joint_name>
+      <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name='right_wing_bottom_plugin' filename='libLiftDragPlugin.so'>
+      <a0>0.10472</a0>
+      <cla>4.705845611</cla>
+      <cda>0.3817188071</cda>
+      <cma>0.0</cma>
+      <alpha_stall>0.1745329252</alpha_stall>
+      <cla_stall>-6.606203378</cla_stall>
+      <cda_stall>1.28113363</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0 -0.280 0</cp>
+      <area>0.6</area>
+      <air_density>0.81935</air_density>
+      <forward>1 0 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>right_wing_bottom_joint</control_joint_name>
+      <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name='right_wing_top_plugin' filename='libLiftDragPlugin.so'>
+      <a0>0.10472</a0>
+      <cla>4.705845611</cla>
+      <cda>0.3817188071</cda>
+      <cma>0.0</cma>
+      <alpha_stall>0.1745329252</alpha_stall>
+      <cla_stall>-6.606203378</cla_stall>
+      <cda_stall>1.28113363</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0 -0.280 0</cp>
+      <area>0.6</area>
+      <air_density>0.81935</air_density>
+      <forward>1 0 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>right_wing_top_joint</control_joint_name>
+      <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name='rudder_pliugin' filename='libLiftDragPlugin.so'>
+      <a0>0.0</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
@@ -308,39 +544,51 @@
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>-0.05 -0.45 0.05</cp>
-      <area>2</area>
-      <air_density>1.2041</air_density>
+      <cp>-0.5 0 0.05</cp>
+      <area>0.2</area>
+      <air_density>0.81935</air_density>
       <forward>1 0 0</forward>
-      <upward>0 0 1</upward>
+      <upward>0 1 0</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>right_wing_link</control_joint_name>
-      <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
+      <control_joint_name>rudder_link</control_joint_name>
+      <control_joint_rad_to_cl>4.0</control_joint_rad_to_cl>
       <robotNamespace/>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    
-    <plugin name="elevator" filename="libLiftDragPlugin.so">
-      <a0>-0.2</a0>
-      <cla>4.752798721</cla>
-      <cda>0.6417112299</cda>
-      <cma>0.0</cma>
+    <plugin name='elevator_plugin' filename='libLiftDragPlugin.so'>
+      <a0>-0.2</a0> 
+      <cla>4.752798721</cla> 
+      <cda>0.6417112299</cda> 
+      <cma>0.0</cma> 
       <alpha_stall>0.3391428111</alpha_stall>
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>-0.5 0 0</cp>
-      <area>0.01</area>
-      <air_density>1.2041</air_density>
-      <forward>1 0 0</forward>
-      <upward>0 0 1</upward>
+      <cp>-0.5 0 0</cp> 
+      <area>0.01</area> 
+      <air_density>1.2041</air_density> 
+      <forward>1 0 0</forward> 
+      <upward>0 0 1</upward> 
       <link_name>base_link</link_name>
-      <control_joint_name>
-        elevator_link
-      </control_joint_name>
+      <control_joint_name>elevator_link</control_joint_name>
       <control_joint_rad_to_cl>-4.0</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+
+    <!-- sensors and interface plugins-->
+    <plugin name='gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
+      <robotNamespace></robotNamespace>
+      <linkName>pitcheron/imu_link</linkName>
+      <imuTopic>/imu</imuTopic>
+      <gyroscopeNoiseDensity>0.0003394</gyroscopeNoiseDensity>
+      <gyroscopeRandomWalk>3.8785e-05</gyroscopeRandomWalk>
+      <gyroscopeBiasCorrelationTime>1000.0</gyroscopeBiasCorrelationTime>
+      <gyroscopeTurnOnBiasSigma>0.0087</gyroscopeTurnOnBiasSigma>
+      <accelerometerNoiseDensity>0.004</accelerometerNoiseDensity>
+      <accelerometerRandomWalk>0.006</accelerometerRandomWalk>
+      <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
+      <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma>
     </plugin>
 
   </model>
