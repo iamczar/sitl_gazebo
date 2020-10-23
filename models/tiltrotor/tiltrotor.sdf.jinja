@@ -1,3 +1,4 @@
+<!-- DO NOT EDIT: Generated from standard_vtol.sdf.jinja -->
 <sdf version='1.5'>
   <model name='tiltrotor'>
     <pose>0 0 0.246 0 0 0</pose>
@@ -5,7 +6,7 @@
       <pose>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>1.5</mass>
+        <mass>5</mass>
         <inertia>
           <ixx>0.197563</ixx>
           <ixy>0</ixy>
@@ -867,7 +868,6 @@
         </ode>
       </physics>
     </joint>
-
     <include>
       <uri>model://gps</uri>
       <pose>0 0 0 0 0 0</pose>
@@ -877,7 +877,9 @@
       <child>gps::link</child>
       <parent>base_link</parent>
     </joint>
-
+    <plugin name='groundtruth_plugin' filename='libgazebo_groundtruth_plugin.so'>
+      <robotNamespace/>
+    </plugin>
     <plugin name="left_wing" filename="libLiftDragPlugin.so">
       <a0>0.05984281113</a0>
       <cla>4.752798721</cla>
@@ -897,6 +899,7 @@
         left_elevon_joint
       </control_joint_name>
       <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
     </plugin>
     <plugin name="right_wing" filename="libLiftDragPlugin.so">
       <a0>0.05984281113</a0>
@@ -917,6 +920,7 @@
         right_elevon_joint
       </control_joint_name>
       <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
     </plugin>
     <plugin name="elevator" filename="libLiftDragPlugin.so">
       <a0>-0.2</a0>
@@ -937,6 +941,7 @@
         elevator_joint
       </control_joint_name>
       <control_joint_rad_to_cl>-4.0</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
     </plugin>
     <plugin name="rudder" filename="libLiftDragPlugin.so">
       <a0>0.0</a0>
@@ -953,6 +958,7 @@
       <forward>1 0 0</forward>
       <upward>0 1 0</upward>
       <link_name>base_link</link_name>
+      <robotNamespace></robotNamespace>
     </plugin>
     <plugin name='front_right_motor_model' filename='libgazebo_motor_model.so'>
       <robotNamespace></robotNamespace>
@@ -962,7 +968,7 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>1500</maxRotVelocity>
-      <motorConstant>8.54858e-06</motorConstant>
+      <motorConstant>2e-05</motorConstant>
       <momentConstant>0.06</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>0</motorNumber>
@@ -979,7 +985,7 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>1500</maxRotVelocity>
-      <motorConstant>8.54858e-06</motorConstant>
+      <motorConstant>2e-05</motorConstant>
       <momentConstant>0.06</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>1</motorNumber>
@@ -996,7 +1002,7 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>1500</maxRotVelocity>
-      <motorConstant>8.54858e-06</motorConstant>
+      <motorConstant>2e-05</motorConstant>
       <momentConstant>0.06</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>2</motorNumber>
@@ -1013,7 +1019,7 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>1500</maxRotVelocity>
-      <motorConstant>8.54858e-06</motorConstant>
+      <motorConstant>2e-05</motorConstant>
       <momentConstant>0.06</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>3</motorNumber>
@@ -1034,9 +1040,6 @@
       <accelerometerRandomWalk>0.006</accelerometerRandomWalk>
       <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
       <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma>
-    </plugin>
-    <plugin name='groundtruth_plugin' filename='libgazebo_groundtruth_plugin.so'>
-      <robotNamespace/>
     </plugin>
     <plugin name='magnetometer_plugin' filename='libgazebo_magnetometer_plugin.so'>
       <robotNamespace/>
@@ -1061,7 +1064,8 @@
       <magSubTopic>/mag</magSubTopic>
       <baroSubTopic>/baro</baroSubTopic>
       <mavlink_addr>INADDR_ANY</mavlink_addr>
-      <mavlink_udp_port>14560</mavlink_udp_port>
+      <mavlink_tcp_port>{{ mavlink_tcp_port }}</mavlink_tcp_port>
+      <mavlink_udp_port>{{ mavlink_udp_port }}</mavlink_udp_port>
       <serialEnabled>false</serialEnabled>
       <serialDevice>/dev/ttyACM0</serialDevice>
       <baudRate>921600</baudRate>
