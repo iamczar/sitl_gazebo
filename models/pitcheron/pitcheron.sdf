@@ -2,7 +2,7 @@
 <sdf version='1.6'>
   <model name='pitcheron'>
 
-    <pose>0 0 200 0 1.57 0</pose>
+    <pose>0 0 0 0 0 0</pose>
 
     <link name='base_link'>
       <inertial>
@@ -608,11 +608,15 @@
       </axis>
     </joint>
 
+    <include>
+      <uri>model://gps</uri>
+      <pose>0 0 0 0 0 0</pose>
+      <name>gps</name>
+    </include>
     <joint name='gps_joint' type='fixed'>
       <child>gps::link</child>
       <parent>base_link</parent>
     </joint>
-
     <!-- sensors and interface plugins-->
     <plugin name='gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
       <robotNamespace></robotNamespace>
