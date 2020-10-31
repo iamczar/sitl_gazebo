@@ -672,7 +672,7 @@
       <use_tcp>true</use_tcp>
       <motorSpeedCommandPubTopic>/gazebo/command/motor_speed</motorSpeedCommandPubTopic>
       <control_channels>
-        <channel name="left_wing_top">
+        <channel name="left_wing">
           <input_index>5</input_index>
           <input_offset>0</input_offset>
           <input_scaling>1</input_scaling>
@@ -680,8 +680,9 @@
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
           <joint_name>left_wing_top_joint</joint_name>
+          <joint_name>left_wing_bottom_joint</joint_name>
         </channel>
-        <channel name="right_wing_top">
+        <channel name="right_wing">
           <input_index>6</input_index>
           <input_offset>0</input_offset>
           <input_scaling>1</input_scaling>
@@ -689,23 +690,6 @@
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
           <joint_name>right_wing_top_joint</joint_name>
-        </channel>
-        <channel name="left_wing_bottom">
-          <input_index>5</input_index>
-          <input_offset>0</input_offset>
-          <input_scaling>-1</input_scaling>
-          <zero_position_disarmed>0</zero_position_disarmed>
-          <zero_position_armed>0</zero_position_armed>
-          <joint_control_type>position_kinematic</joint_control_type>
-          <joint_name>left_wing_bottom_joint</joint_name>
-        </channel>
-        <channel name="right_wing_bottom">
-          <input_index>6</input_index>
-          <input_offset>0</input_offset>
-          <input_scaling>-1</input_scaling>
-          <zero_position_disarmed>0</zero_position_disarmed>
-          <zero_position_armed>0</zero_position_armed>
-          <joint_control_type>position_kinematic</joint_control_type>
           <joint_name>right_wing_bottom_joint</joint_name>
         </channel>
       </control_channels>
