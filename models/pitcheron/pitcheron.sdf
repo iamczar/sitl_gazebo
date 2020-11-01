@@ -542,7 +542,7 @@
     <link name='pitcheron/imu_link'>
       <pose>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 1.5 0 0 0</pose>
         <mass>0.015</mass>
         <inertia>
           <ixx>1e-05</ixx>
@@ -555,7 +555,7 @@
       </inertial>
     </link>
     <link name='pitcheron/airspeed_link'>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0 0 1.5 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.015</mass>
@@ -610,7 +610,7 @@
 
     <include>
       <uri>model://gps</uri>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0 0 1.5 0 0 0</pose>
       <name>gps</name>
     </include>
     <joint name='gps_joint' type='fixed'>
