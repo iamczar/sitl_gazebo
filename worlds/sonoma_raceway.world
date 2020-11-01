@@ -6,7 +6,7 @@
       <uri>model://sun</uri>
     </include>
     <include>
-      <uri>http://models.gazebosim.org/sonoma_raceway</uri>
+      <uri>model://sonoma_raceway</uri>
       <pose>-295 150 -7 0 0 0</pose>
     </include>
     <spherical_coordinates>
