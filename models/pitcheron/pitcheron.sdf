@@ -673,7 +673,7 @@
       <motorSpeedCommandPubTopic>/gazebo/command/motor_speed</motorSpeedCommandPubTopic>
       <control_channels>
         <channel name="left_wing_top">
-          <input_index>5</input_index>
+          <input_index>0</input_index>
           <input_offset>0</input_offset>
           <input_scaling>1</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
@@ -682,7 +682,7 @@
           <joint_name>left_wing_top_joint</joint_name>
         </channel>
         <channel name="right_wing_top">
-          <input_index>6</input_index>
+          <input_index>1</input_index>
           <input_offset>0</input_offset>
           <input_scaling>1</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
@@ -691,7 +691,7 @@
           <joint_name>right_wing_top_joint</joint_name>
         </channel>
         <channel name="left_wing_bottom">
-          <input_index>7</input_index>
+          <input_index>2</input_index>
           <input_offset>0</input_offset>
           <input_scaling>1</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
@@ -700,7 +700,7 @@
           <joint_name>left_wing_bottom_joint</joint_name>
         </channel>
         <channel name="right_wing_bottom">
-          <input_index>8</input_index>
+          <input_index>3</input_index>
           <input_offset>0</input_offset>
           <input_scaling>1</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
