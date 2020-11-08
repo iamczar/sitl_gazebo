@@ -15,10 +15,10 @@
           <izz>36.18768153</izz>
         </inertia>
       </inertial>
-      <pose frame=''>0 0 1.490810 0 -0 0</pose>
+      <pose frame=''>0.25 0 1.490810 0 -0 0</pose>
       <gravity>1</gravity>
       <visual name='base_link_visual'>
-        <pose frame=''>0.240000 0 0.020000 0 0 3.14159</pose>
+        <pose frame=''>0 0 0.020000 0 0 3.14159</pose>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
