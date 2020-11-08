@@ -2,8 +2,6 @@
 <sdf version='1.6'>
   <model name='pitcheron'>
 
-    <pose>0 0 200 0 0 0</pose>
-
     <link name='base_link'>
       <inertial>
         <mass>47</mass>
@@ -96,7 +94,7 @@
 
     <!-- control surfaces links -->
 
-    <link name='elevator_link'>
+    <!-- <link name='elevator_link'>
       <inertial>
         <mass>1e-08</mass>
         <inertia>
@@ -123,10 +121,11 @@
             <name>Gazebo/Grey</name>
           </script>
         </material>
-        <transparency>1</transparency>
+        <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
-    </link>
+    </link> -->
+
     <link name='left_wing_bottom_link'>
       <inertial>
         <mass>1e-08</mass>
@@ -255,7 +254,8 @@
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
-    <link name='rudder_link'>
+
+    <!-- <link name='rudder_link'>
       <inertial>
         <mass>1e-08</mass>
         <inertia>
@@ -266,7 +266,7 @@
           <iyz>0</iyz>
           <izz>1e-06</izz>
         </inertia>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>-0.5 0 0.05 0 0 0 </pose>
       </inertial>
       <pose frame=''>-1.446240 0 1.682760 0 -0 0</pose>
       <visual name='rudder_link_visual'>
@@ -283,30 +283,34 @@
           </script>
           <emissive>0 0 0 1</emissive>
         </material>
-        <transparency>1</transparency>
+        <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
-    </link>
+    </link> -->
 
     <!-- control surfaces joints -->
 
-    <joint name='elevator_joint' type='fixed'>
+    <!-- <joint name='elevator_joint' type='revolute'>
       <parent>base_link</parent>
       <child>elevator_link</child>
       <pose frame=''>0 0 0 0 -0.261799 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.53</lower>
+          <upper>0.53</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
       <physics>
         <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
+          <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
       </physics>
-    </joint>
+    </joint> -->
+
     <joint name='left_wing_bottom_joint' type='revolute'>
       <parent>base_link</parent>
       <child>left_wing_bottom_link</child>
@@ -391,23 +395,27 @@
         </ode>
       </physics>
     </joint>
-    <joint name='rudder_joint' type='fixed'>
+
+    <!-- <joint name='rudder_joint' type='revolute'>
       <parent>base_link</parent>
       <child>rudder_link</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.53</lower>
+          <upper>0.53</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
       <physics>
         <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
+          <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
       </physics>
-    </joint>
+    </joint> -->
 
     <static>0</static>
 
@@ -420,15 +428,15 @@
       <a0>0.10472</a0> <!-- angle of attack in radians as a double precision point value -->
       <cla>4.705845611</cla> <!-- as a coeficient unitless as a double precision point value -->
       <cda>0.3817188071</cda> <!-- as a coeficient unitless as a double precision point value -->
-      <cma>0.0</cma> <!-- Coefficient of Moment / alpha slope. unitless as a double precision point value NOTE: this is zero on the lane model--> 
+      <cma>0.0</cma> <!-- Coefficient of Moment / alpha slope. unitless as a double precision point value NOTE: this is zero on the lane model-->
       <!-- set to 10 degrees -->
       <alpha_stall>0.1745329252</alpha_stall> <!-- is the angle at which it starts stalling -->
       <cla_stall>-6.606203378</cla_stall> <!-- as a coeficient unitless as a double precision point value -->
       <cda_stall>1.28113363</cda_stall> <!-- as a coeficient unitless as a double precision point value -->
-      <cma_stall>0</cma_stall> <!-- Coefficient of Moment / alpha slope. unitless as a double precision point value NOTE: this is zero on the lane model--> 
+      <cma_stall>0</cma_stall> <!-- Coefficient of Moment / alpha slope. unitless as a double precision point value NOTE: this is zero on the lane model-->
       <cp>0 0.280 0</cp> <!-- link coordinates of center of pressure int Vector 3 (x,y,x) relative to center of link -->
       <area>0.6</area> <!-- area of the link in m^2 as a double precision point value -->
-      <air_density>0.81935</air_density>  <!-- air density in kg/m3 as a double precision point value --> 
+      <air_density>0.81935</air_density>  <!-- air density in kg/m3 as a double precision point value -->
       <forward>1 0 0</forward> <!-- Normally, this is taken as a direction parallel to the chord of the airfoil in zero angle of attack forward flight. (x,y,z)-->
       <upward>0 0 1</upward> <!--Inflow velocity orthogonal to forward and upward vectors is considered flow in the wing sweep direction. (x,y.z)-->
       <link_name>base_link</link_name>
@@ -497,7 +505,8 @@
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    <plugin name='rudder_pliugin' filename='libLiftDragPlugin.so'>
+
+    <!-- <plugin name='rudder_pliugin' filename='libLiftDragPlugin.so'>
       <a0>0.0</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
@@ -507,7 +516,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.5 0 0.05</cp>
-      <area>0.2</area>
+      <area>0.9</area>
       <air_density>0.81935</air_density>
       <forward>1 0 0</forward>
       <upward>0 1 0</upward>
@@ -517,26 +526,27 @@
       <robotNamespace/>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
+
     <plugin name='elevator_plugin' filename='libLiftDragPlugin.so'>
-      <a0>-0.2</a0> 
-      <cla>4.752798721</cla> 
-      <cda>0.6417112299</cda> 
-      <cma>0.0</cma> 
+      <a0>0</a0>
+      <cla>4.752798721</cla>
+      <cda>0.6417112299</cda>
+      <cma>0.0</cma>
       <alpha_stall>0.3391428111</alpha_stall>
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>-0.5 0 0</cp> 
-      <area>0.01</area> 
-      <air_density>1.2041</air_density> 
-      <forward>1 0 0</forward> 
-      <upward>0 0 1</upward> 
+      <cp>-0.5 0 0</cp>
+      <area>5</area>
+      <air_density>1.2041</air_density>
+      <forward>1 0 0</forward>
+      <upward>0 0 1</upward>
       <link_name>base_link</link_name>
       <control_joint_name>elevator_link</control_joint_name>
       <control_joint_rad_to_cl>-4.0</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
-    </plugin>
+    </plugin> -->
 
     <!-- sensor and interface links -->
     <link name='pitcheron/imu_link'>
@@ -708,6 +718,24 @@
           <joint_control_type>position_kinematic</joint_control_type>
           <joint_name>right_wing_bottom_joint</joint_name>
         </channel>
+        <!-- <channel name="rudder">
+          <input_index>5</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_name>rudder_joint</joint_name>
+        </channel>
+        <channel name="elevator">
+          <input_index>6</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_name>elevator_joint</joint_name>
+        </channel> -->
       </control_channels>
     </plugin>
 
