@@ -121,7 +121,7 @@
             <name>Gazebo/Grey</name>
           </script>
         </material>
-        <transparency>0</transparency>
+        <transparency>1</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
     </link>
@@ -255,7 +255,7 @@
       </visual>
     </link>
 
-    <!-- <link name='rudder_link'>
+    <link name='rudder_link'>
       <inertial>
         <mass>1e-08</mass>
         <inertia>
@@ -283,10 +283,10 @@
           </script>
           <emissive>0 0 0 1</emissive>
         </material>
-        <transparency>0</transparency>
+        <transparency>1</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
-    </link> -->
+    </link>
 
     <!-- control surfaces joints -->
 
@@ -396,7 +396,7 @@
       </physics>
     </joint>
 
-    <!-- <joint name='rudder_joint' type='revolute'>
+    <joint name='rudder_joint' type='fixed'>
       <parent>base_link</parent>
       <child>rudder_link</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
@@ -415,7 +415,7 @@
           <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
       </physics>
-    </joint> -->
+    </joint>
 
     <static>0</static>
 
@@ -506,7 +506,7 @@
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
 
-    <!-- <plugin name='rudder_pliugin' filename='libLiftDragPlugin.so'>
+    <plugin name='rudder_plugin' filename='libLiftDragPlugin.so'>
       <a0>0.0</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
@@ -516,7 +516,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.5 0 0.05</cp>
-      <area>0.9</area>
+      <area>0.2</area>
       <air_density>0.81935</air_density>
       <forward>1 0 0</forward>
       <upward>0 1 0</upward>
@@ -525,7 +525,7 @@
       <control_joint_rad_to_cl>4.0</control_joint_rad_to_cl>
       <robotNamespace/>
       <windSubTopic>world_wind</windSubTopic>
-    </plugin> -->
+    </plugin>
 
     <plugin name='elevator_plugin' filename='libLiftDragPlugin.so'>
       <a0>0</a0>
@@ -537,7 +537,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.5 0 0</cp>
-      <area>0.05</area>
+      <area>0.2</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -719,24 +719,6 @@
           <joint_control_type>position_kinematic</joint_control_type>
           <joint_name>right_wing_bottom_joint</joint_name>
         </channel>
-        <!-- <channel name="rudder">
-          <input_index>5</input_index>
-          <input_offset>0</input_offset>
-          <input_scaling>1</input_scaling>
-          <zero_position_disarmed>0</zero_position_disarmed>
-          <zero_position_armed>0</zero_position_armed>
-          <joint_control_type>position_kinematic</joint_control_type>
-          <joint_name>rudder_joint</joint_name>
-        </channel>
-        <channel name="elevator">
-          <input_index>6</input_index>
-          <input_offset>0</input_offset>
-          <input_scaling>1</input_scaling>
-          <zero_position_disarmed>0</zero_position_disarmed>
-          <zero_position_armed>0</zero_position_armed>
-          <joint_control_type>position_kinematic</joint_control_type>
-          <joint_name>elevator_joint</joint_name>
-        </channel> -->
       </control_channels>
     </plugin>
 
