@@ -114,9 +114,9 @@
     </plugin>
 
     <link name='imu_link'>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0 -1.000130 0 0 0 0</pose>
       <inertial>
-        <pose>0 -1.000130 0 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>0.015</mass>
         <inertia>
           <ixx>1e-05</ixx>
