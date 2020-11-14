@@ -268,7 +268,7 @@
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
-      <control_joint_name>right_elevon_joint</control_joint_name>
+      <control_joint_name>right_wing_joint</control_joint_name>
       <control_joint_rad_to_cl>-0.5</control_joint_rad_to_cl>
       <robotNamespace/>
       <windSubTopic>world_wind</windSubTopic>
