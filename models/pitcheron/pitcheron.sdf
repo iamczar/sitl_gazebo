@@ -2,6 +2,8 @@
 <sdf version='1.6'>
   <model name='pitcheron'>
   
+    <pose>0 0 1 0 -0 0</pose>
+
     <link name='base_link'>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
@@ -22,7 +24,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.617881 0.127582 0.108449</size>
+            <size>0.617881 0.127582 0.209457</size>
           </box>
         </geometry>
         <surface>
@@ -38,7 +40,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.617881 0.127582 0.108449</size>
+            <size>0.617881 0.127582 0.209457</size>
           </box>
         </geometry>
         <material>
@@ -112,10 +114,10 @@
       </control_channels>
     </plugin>
 
-    <link name='plane/imu_link'>
+    <link name='imu_link'>
       <pose>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 -1.000130 0 0 0 0</pose>
         <mass>0.015</mass>
         <inertia>
           <ixx>1e-05</ixx>
@@ -127,9 +129,9 @@
         </inertia>
       </inertial>
     </link>
-    <joint name='plane/imu_joint' type='revolute'>
-      <child>plane/imu_link</child>
+    <joint name='imu_joint' type='revolute'>
       <parent>base_link</parent>
+      <child>pitcheron/imu_link</child>
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
@@ -147,7 +149,7 @@
     </joint>
     <plugin name='gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
       <robotNamespace/>
-      <linkName>plane/imu_link</linkName>
+      <linkName>imu_joint</linkName>
       <imuTopic>/imu</imuTopic>
       <gyroscopeNoiseDensity>0.0003394</gyroscopeNoiseDensity>
       <gyroscopeRandomWalk>3.8785e-05</gyroscopeRandomWalk>
@@ -159,8 +161,8 @@
       <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma>
     </plugin>
 
-    <link name='plane/airspeed_link'>
-      <pose>0 0 0 0 0 0</pose>
+    <link name='airspeed_link'>
+      <pose>0 -1.000130 0 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.015</mass>
@@ -174,9 +176,9 @@
         </inertia>
       </inertial>
     </link>
-    <joint name='plane/airspeed_joint' type='revolute'>
-      <child>plane/airspeed_link</child>
+    <joint name='airspeed_joint' type='revolute'>
       <parent>base_link</parent>
+      <child>airspeed_link</child>
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
@@ -194,7 +196,7 @@
     </joint>
     <plugin name='airspeed_plugin' filename='libgazebo_airspeed_plugin.so'>
       <robotNamespace/>
-      <linkName>plane/airspeed_link</linkName>
+      <linkName>airspeed_link</linkName>
     </plugin>
 
     <link name='right_wing_link'>
@@ -210,7 +212,7 @@
         </inertia>
         <pose>0 0.3 0 0.00 0 0.0</pose>
       </inertial>
-      <pose frame=''>-0.012316 -1.32641 -0.017916 0 -0.000326 0</pose>
+      <pose frame=''>-0.012316 -1.32641 0.052084 0 0 0</pose>
       <visual name='right_wing_visual'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
@@ -287,7 +289,7 @@
         </inertia>
         <pose>0 0.3 0 0.00 0 0.0</pose>
       </inertial>
-      <pose frame=''>-0.016748 -0.676921 -0.017919 0 -0.000489 0</pose>
+      <pose frame=''>-0.016748 -0.676921 0.052084 0 -0.000489 0</pose>
       <visual name='left_wing_visual'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
