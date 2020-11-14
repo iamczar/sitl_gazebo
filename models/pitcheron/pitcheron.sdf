@@ -2,8 +2,7 @@
 <sdf version='1.6'>
   <model name='pitcheron'>
   
-    <pose>0 0 1 0 -0 0</pose>
-
+    <pose>0 0 0.246 0 0 0</pose>
     <link name='base_link'>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
@@ -131,7 +130,7 @@
     </link>
     <joint name='imu_joint' type='revolute'>
       <parent>base_link</parent>
-      <child>pitcheron/imu_link</child>
+      <child>imu_link</child>
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
