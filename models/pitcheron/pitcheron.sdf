@@ -6,7 +6,7 @@
     <link name='base_link'>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>1.5</mass>
+        <mass>2</mass>
         <inertia>
           <ixx>0.197563</ixx>
           <ixy>0</ixy>
@@ -16,7 +16,7 @@
           <izz>0.1477</izz>
         </inertia>
       </inertial>
-      <pose frame=''>0.1 -1.00013 -0.003977 0 -0.000163 0</pose>
+      <pose frame=''>0.5 -1.00013 -0.003977 0 -0.000163 0</pose>
       <collision name='base_link_collision'>
         <laser_retro>0</laser_retro>
         <max_contacts>10</max_contacts>
@@ -115,7 +115,7 @@
 
     <include>
       <uri>model://gps</uri>
-      <pose>0 -1.00013 0 0 0 0</pose>
+      <pose>0.5 -1.00013 0 0 0 0</pose>
       <name>gps</name>
     </include>
     <joint name='gps_joint' type='fixed'>
@@ -124,7 +124,7 @@
     </joint>
 
     <link name='imu_link'>
-      <pose>0 -1.000130 0 0 0 0</pose>
+      <pose>0.5 -1.000130 0 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.015</mass>
@@ -171,7 +171,7 @@
     </plugin>
 
     <link name='airspeed_link'>
-      <pose>0 -1.000130 0 0 0 0</pose>
+      <pose>0.5 -1.000130 0 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.015</mass>
